@@ -3,14 +3,8 @@ from fastapi.responses import FileResponse, JSONResponse
 from pydantic import BaseModel, Field
 from typing import Optional, Literal
 import uvicorn
-import argparse
 from tts_engine import tts_engine
 from utils import AUDIO_FORMAT_MIME_TYPES, clean_up_file
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--host", type=str, default="0.0.0.0", required=False)
-parser.add_argument("--port", type=int, default=8100, required=False)
-args = parser.parse_args()
 
 app = FastAPI(title="OpenAI Compatible TTS Server (pyttsx3)")
 
@@ -104,4 +98,11 @@ async def list_voices():
     return {"voices": voices}
 
 if __name__ == "__main__":
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--host", type=str, default="0.0.0.0", required=False)
+    parser.add_argument("--port", type=int, default=8100, required=False)
+    args = parser.parse_args()
+    
     uvicorn.run(app, host=args.host, port=args.port)
