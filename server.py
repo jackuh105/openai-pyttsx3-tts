@@ -5,6 +5,7 @@ from typing import Optional, Literal
 import uvicorn
 from tts_engine import tts_engine
 from utils import AUDIO_FORMAT_MIME_TYPES, clean_up_file
+from handle_text import prepare_tts_input_with_context
 
 app = FastAPI(title="OpenAI Compatible TTS Server (pyttsx3)")
 
@@ -46,8 +47,9 @@ async def generate_speech(
     """
     
     try:
+        cleaned_input = prepare_tts_input_with_context(request.input)
         output_file_path = tts_engine.generate_audio(
-            text=request.input,
+            text=cleaned_input,
             voice_id=request.voice,
             speed=request.speed,
             output_format=request.response_format

@@ -229,3 +229,4 @@ uv run uvicorn server:app --reload --host 0.0.0.0 --port 4000
 - [pyttsx3](https://github.com/nateshmbhat/pyttsx3) - Cross-platform text-to-speech engine
 - [FastAPI](https://fastapi.tiangolo.com/) - Modern Python web framework
 - [OpenAI](https://platform.openai.com/docs/guides/text-to-speech) - API design reference
+- [openai-edge-tts](https://github.com/travisvn/openai-edge-tts) - Reference implementation

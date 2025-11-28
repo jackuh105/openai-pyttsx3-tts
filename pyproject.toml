@@ -5,6 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "emoji>=2.15.0",
     "fastapi[standard]>=0.122.0",
     "pyttsx3>=2.99",
 ]
