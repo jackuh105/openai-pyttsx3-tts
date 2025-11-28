@@ -61,6 +61,19 @@ python server.py
 
 The server will start at `http://0.0.0.0:8100`.
 
+### Running in Background
+
+To run the server in the background, use `nohup`:
+
+```bash
+nohup python server.py > server.log 2>&1 &
+```
+
+This will:
+- Run the server in the background
+- Redirect output to `server.log`
+- Keep running even if you close the terminal
+
 ## API Endpoints
 
 ### 1. Health Check
